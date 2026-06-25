@@ -1,0 +1,50 @@
+{
+  "name": "10up/jobber",
+  "description": "Jobber WordPress Plugin.",
+  "license": "GPL-2.0-or-later",
+  "type": "wordpress-plugin",
+  "authors": [
+    {
+      "name": "10up",
+      "email": "opensource@10up.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "haydenpierce/class-finder": "^0.5.3"
+  },
+  "require-dev": {
+    "10up/phpcs-composer": "^3.0",
+    "szepeviktor/phpstan-wordpress": "^2.0.1",
+    "phpstan/extension-installer": "1.4.x-dev",
+    "php-stubs/wp-cli-stubs": "dev-master",
+    "johnbillion/wp-compat": "^1.1.0",
+    "phpstan/phpstan-deprecation-rules": "^2.0.1",
+    "sirbrillig/phpcs-changed": "^2.11",
+    "phpcompatibility/php-compatibility": "dev-develop as 9.99.99"
+  },
+  "autoload": {
+    "psr-4": {
+      "Jobber\\": "includes/classes/"
+    },
+    "files": [
+      "includes/helpers/helpers.php"
+    ]
+  },
+  "scripts": {
+    "lint": "phpcs -s . --runtime-set testVersion 7.4-",
+    "lint-fix": "phpcbf .",
+    "phpstan": "phpstan analyse --memory-limit=2048M -v"
+  },
+  "archive": {
+    "exclude": [
+      "!/vendor/"
+    ]
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "phpstan/extension-installer": true
+    }
+  }
+}
